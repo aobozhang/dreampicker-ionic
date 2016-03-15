@@ -1,0 +1,49 @@
+<!--
+This template loads for the 'tab.friend-detail' state (app.js)
+'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+The FriendsCtrl pulls data from the Friends service (service.js)
+The Friends service returns an array of friend data
+-->
+<ion-view view-title="详情">
+    <ion-content>
+        <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+        <div class="card">
+            <div class="item item-avatar">
+                <img ng-src="{{dream.user.figure_small}}">
+                <h2 class="positive">{{dream.user.name}}</h2>
+                <span class="item-note">{{dream.time_for_human}}</span>
+                <p>
+                    <span ng-repeat="tag in dream.tags">{{tag.content}}</span>
+                </p>
+            </div>
+            <div class="item item-body item-icon-right">
+                <p>{{dream.content}}</p>
+            </div>
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="#">
+                    <i class="icon ion-heart"></i>
+                    {{dream.likes.length}}
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-chatbox"></i>
+                    {{dream.comments.length}}
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-share"></i>
+                </a>
+            </div>
+        </div>
+
+        <ion-list>
+            <div class="list">
+                <ion-item class="item item-avatar" href="#" ng-repeat="comment in dream.comments">
+                    <img ng-src="{{comment.user.figure_small}}">
+                    <h2 class="positive">{{comment.user.name}}</h2>
+                    <span class="item-note">{{comment.time_for_human}}</span>
+                    <p>{{comment.content}}</p>
+                </ion-item>
+            </div>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

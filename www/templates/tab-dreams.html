@@ -1,0 +1,34 @@
+<ion-view view-title="拾梦">
+    <ion-content>
+        <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+        <ion-list>
+                <div class="card" ng-repeat="dream in dreams">
+                    <div class="item item-avatar">
+                        <img ng-src="{{dream.user.figure_small}}">
+                        <h2 class="positive">{{dream.user.name}}</h2>
+                        <span class="item-note">{{dream.time_for_human}}</span>
+                        <p>
+                            <span ng-repeat="tag in dream.tags">{{tag.content}}</span>
+                        </p>
+                    </div>
+                    <div class="item item-body item-text-wrap item-icon-right" ng-click="redirectTo({{dream.id}})">
+                        <p>{{dream.content}}</p>
+                    </div>
+                    <div class="item tabs tabs-secondary tabs-icon-left">
+                        <a class="tab-item" href="#">
+                            <i class="icon ion-heart calm"></i>
+                            {{dream.likes.length}}
+                        </a>
+                        <a class="tab-item" href="#">
+                            <i class="icon ion-chatbox calm"></i>
+                            {{dream.comments.length}}
+                        </a>
+                        <a class="tab-item" href="#">
+                            <i class="icon ion-share calm"></i>
+                        </a>
+                    </div>
+                </div>
+
+        </ion-list>
+    </ion-content>
+</ion-view>
