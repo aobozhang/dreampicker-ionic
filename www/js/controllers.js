@@ -36,7 +36,7 @@ angular.module('dreampicker.controllers', [])
     };
 })
 
-.controller('DreamsCtrl', function($scope, $http, Dream) {
+.controller('DreamsCtrl', function($scope, $http, $stateParams, Dream) {
 
     $scope.$on('$ionicView.enter', function(e) {
         $http.jsonp('http://dream.atreehole.com/api/dream?callback=JSON_CALLBACK').success(function(data, status, headers, config){

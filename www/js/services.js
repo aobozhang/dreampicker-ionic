@@ -51,31 +51,8 @@ angular.module('dreampicker.services', [])
     };
 })
 
-.factory('Dream', function($http) {
+.factory('Dream', function($resource) {
     // Might use a resource here that returns a JSON array
-
-    return {
-        all: function(){
-            return 'test';
-        },
-        query: function() {
-            return 'test';
-        },
-        delete: function(dreamId) {
-            $http.delete('http://dream.atreehole.com/api/dream' + dreamId ).then(function(resp){
-                console.log(resp.data);
-                return resp.data;
-            }, function(err){
-                console.error('ERR', err);
-            });
-        },
-        get: function(dreamId) {
-            $http.get('http://dream.atreehole.com/api/dream' + dreamId ).then(function(resp){
-                return resp.data;
-            }, function(err){
-                console.error('ERR', err);
-            });
-        }
-    };
+    return $resource('http://dream.atreehole.com/api/dream');
 
 });

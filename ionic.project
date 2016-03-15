@@ -1,6 +1,6 @@
 {
   "name": "dreampicker-ionic",
-  "app_id": "",
+  "app_id": "d578fb61",
   "gulpStartupTasks": [
     "sass",
     "watch"
